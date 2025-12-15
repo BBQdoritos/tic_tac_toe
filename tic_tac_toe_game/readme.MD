@@ -55,8 +55,10 @@ honestly, calling the program confuses me, as you don't call the .java file, but
 
 Grid is done, now we need to get into the design of the game and attaching those said aspects to one another, which I don't know how to do
 
-
+uploaded to github now
 
 Switched to creating a Maven environment:
     1. Always compile with mvn compile
         this is done so that maven can deal with it, not so much running a terminal command for javac and then java
+
+when first running a Maven, need to run mvn test so that the dependencies are downloaded`
