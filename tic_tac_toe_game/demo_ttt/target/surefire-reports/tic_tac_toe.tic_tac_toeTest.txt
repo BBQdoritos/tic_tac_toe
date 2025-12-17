@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tic_tac_toe.tic_tac_toeTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s -- in tic_tac_toe.tic_tac_toeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.283 s -- in tic_tac_toe.tic_tac_toeTest

@@ -7,6 +7,12 @@ public class tic_tac_toe_logic {
     Scanner scanner = new Scanner(System.in);
 
     int startingTurn = 0;
+
+    public enum winCons {
+        PlayerXwins,
+        PlayerOwins,
+        CatsGame
+    }
     //Player 1 = O
     //Player 2 = X
 
@@ -21,7 +27,7 @@ public class tic_tac_toe_logic {
     }
 
     boolean within_bounds (int x, int y) {
-        return (0 <= x || x < 3) && (0 <= y || y < 3);
+        return (0 <= x && x < 3) && (0 <= y && y < 3);
     }
 
     /**
@@ -46,7 +52,7 @@ public class tic_tac_toe_logic {
         int row = placement.x();
         int column = placement.y();
 
-        if (board[row][column] == null) {
+        if (board[row][column] == null && within_bounds(row, column)) {
             board[row][column] = (startingTurn % 2 == 0) ? "O" : "X";
             return true;
         }
@@ -54,6 +60,22 @@ public class tic_tac_toe_logic {
     }
 
     //need somehow to find a line within the grid
+    winCons winCondition (String board[][]) {
+        //need to make a line using the arrays, so lets start easy and work within a single array
+        String playerX = "X";
+        String playerO = "O";    
 
+        //if every member of the array is the same, return 
+        for (String[] row : board) {
+            int Xwin = 0;
+            int Owin = 0;
+            for (String cell : row) {
+                if (cell.equals(playerO)) Owin++;
+                if (cell.equals(playerX)) Xwin++;
+            }
+            if (Xwin == 2) return PlayerXwins;
+            if(Owin == 2) return PlayerOwins;
+        }
+    }
 
 }
