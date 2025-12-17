@@ -54,6 +54,7 @@ public class tic_tac_toe_logic {
 
         if (board[row][column] == null && within_bounds(row, column)) {
             board[row][column] = (startingTurn % 2 == 0) ? "O" : "X";
+            startingTurn++;
             return true;
         }
         return false;
