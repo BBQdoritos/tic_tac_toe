@@ -61,4 +61,8 @@ Switched to creating a Maven environment:
     1. Always compile with mvn compile
         this is done so that maven can deal with it, not so much running a terminal command for javac and then java
 
-when first running a Maven, need to run mvn test so that the dependencies are downloaded`
+when first running a Maven, need to run mvn test so that the dependencies are downloaded
+
+In JUnit, you need to annotate tests with @Test above it, otherwise it won't run
+
+In terms of JUnit and any library that you want to run using Maven, the pom.xml is the most important aspect, honestly, think of it as the makefile because that is what is running when calling any mvn. It is very important to understand it, although I don't know if you need internet for Maven to function properly. Would be less than ideal for that to be the case. 

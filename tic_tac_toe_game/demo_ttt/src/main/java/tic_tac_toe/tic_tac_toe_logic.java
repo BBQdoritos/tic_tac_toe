@@ -7,10 +7,6 @@ public class tic_tac_toe_logic {
     Scanner scanner = new Scanner(System.in);
 
     int startingTurn = 0;
-
-    //a 2D board, should be empty-pop
-    String[][] board = new String[3][3];
-
     //Player 1 = O
     //Player 2 = X
 
@@ -18,6 +14,15 @@ public class tic_tac_toe_logic {
     
     //allow player to put it if the tile is empty
     //need an input here
+
+    String [][] initializeBoard () {
+        //a 2D board, should be empty-pop
+        return new String[3][3];
+    }
+
+    boolean within_bounds (int x, int y) {
+        return (0 <= x || x < 3) && (0 <= y || y < 3);
+    }
 
     /**
      * Documentation of a Placement
@@ -37,7 +42,7 @@ public class tic_tac_toe_logic {
         return new Placement(x,y);
     } 
 
-    boolean turn (Placement placement) {
+    boolean turn (String board[][], Placement placement) {
         int row = placement.x();
         int column = placement.y();
 
@@ -47,6 +52,8 @@ public class tic_tac_toe_logic {
         }
         return false;
     }
+
+    //need somehow to find a line within the grid
 
 
 }
