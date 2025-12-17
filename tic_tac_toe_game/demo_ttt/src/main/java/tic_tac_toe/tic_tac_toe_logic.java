@@ -66,19 +66,75 @@ public class tic_tac_toe_logic {
         String playerO = "O";    
 
         //if every member of the array is the same, return 
+        winCons rowCheck = rowWin(board, playerO, playerX);
+        if (rowCheck != winCons.CatsGame) return rowCheck;
+        winCons columnCheck = columnWin(board, playerO, playerX);
+        if (columnCheck != winCons.CatsGame) return columnCheck;
+        winCons diagonalCheck = diagonalWin(board, playerO, playerX);
+        if (diagonalCheck != winCons.CatsGame) return diagonalCheck;
+
+        return winCons.CatsGame;
+    }
+
+    winCons rowWin (String [][]board, String playerO, String playerX) {
         for (String[] row : board) {
-            int Xwin = 0;
-            int Owin = 0;
-            for (String cell : row) {
-                if (cell == null) continue;
+            int Xwin = 0; 
+            int Owin = 0; 
+            for (String cell : row) { 
+                if (cell == null) continue; 
                 if (cell.equals(playerO)) Owin++;
                 if (cell.equals(playerX)) Xwin++;
-            }
-            if (Xwin == 2) return winCons.PlayerXwins;
-            if(Owin == 2) return winCons.PlayerOwins;
+            } 
+
+            if (Xwin == 3) return winCons.PlayerXwins;
+            if (Owin == 3) return winCons.PlayerOwins; 
         }
 
         return winCons.CatsGame;
     }
 
+    winCons columnWin (String [][]board, String playerO, String playerX) {
+        for (int col = 0; col < 3; col++) {
+            int Xwin = 0;
+            int Owin = 0;
+            
+            for (int row = 0; row < 3; row++) {
+                String cell = board[row][col];
+                if (cell == null) continue;
+                if (cell.equals(playerO)) Owin++;
+                if (cell.equals(playerX)) Xwin++;
+            }
+            if (Xwin == 3) return winCons.PlayerXwins;
+            if (Owin == 3) return winCons.PlayerOwins; 
+        }
+        return winCons.CatsGame;
+    }
+
+
+    winCons diagonalWin (String [][]board, String playerO, String playerX) {
+        int Xwin = 0;
+        int Owin = 0;
+        for (int i = 0; i < 3; i++) {
+            String cell = board[i][i];
+            if (cell == null) continue;
+            if (cell.equals(playerO)) Owin++;
+            if (cell.equals(playerX)) Xwin++;
+        }
+        if (Xwin == 3) return winCons.PlayerXwins;
+        if (Owin == 3) return winCons.PlayerOwins;
+        
+        Xwin = 0;
+        Owin = 0;
+        for (int i = 0; i < 3; i++) {
+            String cell = board[i][2 - i];
+            if (cell == null) continue;
+            if (cell.equals(playerO)) Owin++;
+            if (cell.equals(playerX)) Xwin++;
+        }
+        if (Xwin == 3) return winCons.PlayerXwins;
+        if (Owin == 3) return winCons.PlayerOwins;
+
+        return winCons.CatsGame;
+    }
+    
 }
