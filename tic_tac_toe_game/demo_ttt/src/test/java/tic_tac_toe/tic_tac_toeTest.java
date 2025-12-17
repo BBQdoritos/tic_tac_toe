@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 
 import tic_tac_toe.tic_tac_toe_logic.Placement;
+import tic_tac_toe.tic_tac_toe_logic.winCons;
 
 public class tic_tac_toeTest {
 
@@ -62,5 +63,23 @@ public class tic_tac_toeTest {
         assertFalse(logic.turn(board, secondPlacement));
     }
 
-    
+    @Test
+    void game_win_success() {
+        String[][] board = logic.initializeBoard();
+        Placement placement = logic.readMoveTesting(0, 0);
+        Placement secondPlacement = logic.readMoveTesting(1, 0);
+        Placement placement3 = logic.readMoveTesting(0, 1);
+        Placement placement4 = logic.readMoveTesting(1, 1);
+        Placement placement5 = logic.readMoveTesting(0, 2);
+
+
+        assertTrue(logic.turn(board, placement));
+        assertTrue(logic.turn(board, secondPlacement));
+        assertTrue(logic.turn(board, placement3));
+        assertTrue(logic.turn(board, placement4));
+        assertTrue(logic.turn(board, placement5));
+
+        assertEquals(logic.winCheck(board), winCons.PlayerOwins);
+    }
+
 }

@@ -60,7 +60,7 @@ public class tic_tac_toe_logic {
     }
 
     //need somehow to find a line within the grid
-    winCons winCondition (String board[][]) {
+    winCons winCheck (String board[][]) {
         //need to make a line using the arrays, so lets start easy and work within a single array
         String playerX = "X";
         String playerO = "O";    
@@ -70,12 +70,15 @@ public class tic_tac_toe_logic {
             int Xwin = 0;
             int Owin = 0;
             for (String cell : row) {
+                if (cell == null) continue;
                 if (cell.equals(playerO)) Owin++;
                 if (cell.equals(playerX)) Xwin++;
             }
-            if (Xwin == 2) return PlayerXwins;
-            if(Owin == 2) return PlayerOwins;
+            if (Xwin == 2) return winCons.PlayerXwins;
+            if(Owin == 2) return winCons.PlayerOwins;
         }
+
+        return winCons.CatsGame;
     }
 
 }
