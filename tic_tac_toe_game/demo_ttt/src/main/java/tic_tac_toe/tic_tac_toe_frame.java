@@ -3,67 +3,55 @@ package tic_tac_toe;
 import java.awt.*; 
 // import java.awt.event.*;
 import javax.swing.*;
+import tic_tac_toe.tic_tac_toe_logic.winCons;
 
 
+public class tic_tac_toe_frame extends JFrame {
+    tic_tac_toe_logic model;
+    private static final int ROWS = 3, COLS = 3, BORDER = 2, SIZE = 65;
+    private static final Color BOARD_COLOUR =  Color.BLACK;
 
-public class tic_tac_toe_frame {
-    JFrame jfrm; 
-    int b = 0;
-    int start = 0;
+    public tic_tac_toe_frame () {
+        setLayout(new GridLayout(ROWS, COLS, BORDER, BORDER));
+        setBackground(BOARD_COLOUR);
 
-    tic_tac_toe_frame () {
-        JFrame jfrm = new JFrame("Tic Tac Toe Beginnings");
+        Board board = new Board(SIZE);
 
-        // specify the FlowLayout for the layout manager
-        jfrm.setLayout(new GridLayout(3, 3)); 
-
-        // Give the frame an initial size. 
-        jfrm.setSize(1000, 800);
-
-        // Terminate the program when the user closes the application. 
-        jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                JButton button = new JButton("Free");
-                // button.addActionListener(this);
-                jfrm.add(button);
+        for (int col = 0; col < COLS; col++) {
+            for (int rows = 0; rows < ROWS; rows++) {
+                add(board.makeButton())
             }
         }
-
-        //action listeners for each button
-
-
-        // Display the frame. 
-        jfrm.setVisible(true);     
     }
 
+    // tic_tac_toe_frame () {
+    //     jfrm = new JFrame("Tic Tac Toe Beginnings");
+    //     model = new tic_tac_toe_logic();
 
-    // public bool tic_tac_toe_logic (int n) {
-    //     if (n % 2 == 0) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
+    //     // specify the FlowLayout for the layout manager
+    //     jfrm.setLayout(new GridLayout(3, 3)); 
+
+    //     // Give the frame an initial size. 
+    //     jfrm.setSize(1000, 800);
+
+    //     // Terminate the program when the user closes the application. 
+    //     jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        
+    //     JButton[][] buttons = new JButton[3][3];
+
+    //     //We need an action listener that calls the function turn
+    //     //we also need to make it so that buttons is treated as the board
+
+
+
+
+    //     // Display the frame. 
+    //     jfrm.setVisible(true);     
     // }
 
-    // public void itemStateChanged (ItemEvent ie, int n) {
-    //     JButton button = (JButton)ie.getItem();
 
-    //     /*
-    //         The button being selected should always be true, so no need to have it here
-    //         as it will act as a hinderance in the logic, or would it?
 
-    //     */
 
-    //     if (button.isSelected()) {
-    //         if (tic_tac_toe_logic(n)) {
-    //             jfrm.
-    //         }
-    //     }
-
-    // }
 
     public static void main (String[] args) {
         SwingUtilities.invokeLater(new Runnable() { 

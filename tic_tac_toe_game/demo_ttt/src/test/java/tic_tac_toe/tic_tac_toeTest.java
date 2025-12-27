@@ -81,6 +81,7 @@ public class tic_tac_toeTest {
         assertTrue(logic.turn(board, placement5));
 
         assertEquals(logic.rowWin(board, playerO, playerX), winCons.PlayerOwins);
+        logic.printBoard(board);
     }
 
 
@@ -104,6 +105,7 @@ public class tic_tac_toeTest {
         assertTrue(logic.turn(board, placement5));
 
         assertEquals(logic.columnWin(board, playerO, playerX), winCons.PlayerOwins);
+        logic.printBoard(board);
     }
 
     @Test
@@ -126,6 +128,7 @@ public class tic_tac_toeTest {
         assertTrue(logic.turn(board, placement5));
 
         assertEquals(logic.diagonalWin(board, playerO, playerX), winCons.PlayerOwins);
+        logic.printBoard(board);
     }
 
 

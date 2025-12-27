@@ -68,3 +68,6 @@ In JUnit, you need to annotate tests with @Test above it, otherwise it won't run
 In terms of JUnit and any library that you want to run using Maven, the pom.xml is the most important aspect, honestly, think of it as the makefile because that is what is running when calling any mvn. It is very important to understand it, although I don't know if you need internet for Maven to function properly. Would be less than ideal for that to be the case. 
 
 Java cannot work with NULLs, or it doesn't like to, so never compare anything with a NULL
+
+
+Connecting front-end to back-end:

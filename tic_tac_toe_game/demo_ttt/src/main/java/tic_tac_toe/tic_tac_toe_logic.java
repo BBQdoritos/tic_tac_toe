@@ -1,5 +1,6 @@
 package tic_tac_toe;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class tic_tac_toe_logic {
@@ -28,6 +29,12 @@ public class tic_tac_toe_logic {
 
     boolean within_bounds (int x, int y) {
         return (0 <= x && x < 3) && (0 <= y && y < 3);
+    }
+
+    void printBoard (String [][] board) {
+        for (String[] row : board) {
+            System.out.println(Arrays.toString(row));
+        }
     }
 
     /**
