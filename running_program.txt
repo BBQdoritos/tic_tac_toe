@@ -1,0 +1,5 @@
+To start program run:
+    mvn exec:java
+
+To test program, run:
+    mvn test
